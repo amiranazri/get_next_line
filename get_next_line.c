@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anazri <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/07 16:36:38 by anazri            #+#    #+#             */
+/*   Updated: 2019/07/07 16:48:02 by anazri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	ft_lire(const int fd, char **line)
+static int		ft_lire(const int fd, char **line)
 {
-	int 	con;
+	int		con;
 	char	*buf;
 	char	*temp;
 
@@ -21,9 +32,9 @@ static int	ft_lire(const int fd, char **line)
 	return (con);
 }
 
-int	get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
-	int		con;
+	int			con;
 	char		*str;
 	static char	*temp;
 
@@ -33,7 +44,6 @@ int	get_next_line(const int fd, char **line)
 	while (str == NULL)
 	{
 		con = ft_lire(fd, line);
-
 		if (con == 0)
 		{
 			if (!ft_strlen(temp))
